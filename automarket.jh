@@ -1,0 +1,25 @@
+entity Marka {
+	ime String
+    country String
+}
+
+entity Model {
+	marka Marka
+	ime String
+    cijena Long
+}
+
+relationship ManyToOne {
+	Model{marka} to Marka,
+}
+
+
+
+// Set pagination options
+paginate Marka, Model with infinite-scroll
+paginate Model with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
